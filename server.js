@@ -12,7 +12,7 @@ app.get('/article-one', function (req, res) {
   res.send('Article One is Requested and will be served');
 });
 app.get('/article-two', function (req, res) {
-  res.send('Article Two is Requested and will be served');
+   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
 });
 app.get('/article-three', function (req, res) {
   res.send('Article Three is Requested and will be served');

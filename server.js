@@ -4,8 +4,8 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
-var articleOne={
+var articles={
+    'article-one':{
     title:'ARTICLE ONE| Yash Mittal',
     heading:'Article one',
     date:'11 feb ,2017',
@@ -19,8 +19,38 @@ var articleOne={
         <p>
             hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
         </p> `
-    };
-    
+    },
+    'article-two':{
+    title:'ARTICLE Two| Yash Mittal',
+    heading:'Article two',
+    date:'12 feb ,2017',
+    content:
+    `<p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p>
+        <p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p>
+        <p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p> `
+    },
+    'article-three':{
+    title:'ARTICLE three| Yash Mittal',
+    heading:'Article three',
+    date:'13 feb ,2017',
+    content:
+    `<p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p>
+        <p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p>
+        <p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p> `
+    },
+};
 function createTemplate (data)
 {
     var title=data.title;
@@ -61,14 +91,9 @@ function createTemplate (data)
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-app.get('/article-one', function (req, res) {
-   res.send(createTemplate(articleOne))
-});
-app.get('/article-two', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
-app.get('/article-three', function (req, res) {
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
+app.get('/:articleName', function (req, res) {
+   var articleName=req.params.articleName;
+   res.send(createTemplate(articles[articleName]));
 });
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));

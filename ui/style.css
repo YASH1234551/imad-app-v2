@@ -7,6 +7,10 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+.this
+{
+     text-shadow: 3px 2px red;
+}
 .style {
     background: blanchedalmond;
 }

@@ -4,7 +4,58 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
-
+var content={
+    title:'ARTICLE ONE| Yash Mittal'
+    heading:'Article one'
+    date:'11 feb ,2017'
+    content:`<p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p>
+        <p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p>
+        <p>
+            hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .hello this is yash how are you .
+        </p> `
+    };
+    
+function createTemplate (data)
+{
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    var htmlTemplate=
+    
+          <html>
+      <head>
+    <title>
+        $t{title}
+    </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link href="/ui/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="container">
+        <div>
+            <a href="/">HOME</a>
+        </div>
+        <hr/>
+        <h2>
+            ${heading}
+        </h2>
+        <div>
+            $date={date}
+        </div>
+        <div>
+        $content={content}
+        </div>
+        </div>
+    </body>
+</html>
+    ;
+    return htmlTemplate;
+}
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });

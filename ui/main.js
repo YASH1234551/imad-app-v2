@@ -8,5 +8,5 @@ function moveRight()
 }
 img.onclick= function()
 {
-    var internal=SetInternal(moveRight,100);
+    var internal=setInternal(moveRight,100);
 };

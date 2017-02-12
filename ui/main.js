@@ -1,10 +1,10 @@
 console.log('Loaded!');
 var img=document.getElementById('modi');
-var moveLeft=0;
+var marginLeft=0;
 function moveRight()
 {
-    moveLeft=moveLeft+10;
-    img.style.marginLeft=moveLeft+ 'px';
+    marginLeft=marginLeft+10;
+    img.style.marginLeft=marginLeft+ 'px';
 }
 img.onclick= function()
 {

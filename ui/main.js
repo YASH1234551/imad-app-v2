@@ -2,8 +2,8 @@ var img=document.getElementById('modi');
 var marginLeft=0;
 function moveRight()
 {
-    marginLeft=maginLeft+10;
-    img.style.marginLeft=marginLeft +'px';
+    marginLeft=maginLeft + 10;
+    img.style.marginLeft= marginLeft +'px';
 }
 img.onclick=function()
 {

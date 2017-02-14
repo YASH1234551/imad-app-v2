@@ -17,6 +17,4 @@ button.onclick = function(){
     
     request.open('GET','http://yash1234551.imad.hasura-app.io/counter');
     request.send(null);
-    
-    
 };
